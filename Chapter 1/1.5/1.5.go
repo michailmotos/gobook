@@ -1,4 +1,4 @@
-// Lissajous generates GIF animations of random Lissajous figures.package lissajous
+// 1.5 generates GIF animations of random Lissajous figures.package lissajous
 
 package main
 
@@ -12,7 +12,7 @@ import (
 	"os"
 )
 
-var palette = []color.Color{color.White, color.Black}
+var palette = []color.Color{color.Black, color.RGBA{0x00, 0xFF, 0x00, 0x1}}
 
 const (
 	whiteIndex = 0 // first color in palette
