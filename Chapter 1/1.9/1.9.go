@@ -23,6 +23,8 @@ func main() {
 			os.Exit(1)
 		}
 		b, err := ioutil.ReadAll(resp.Body)
+		code := resp.Status
+		fmt.Printf("%s\n", code)
 		resp.Body.Close()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "fetch: reading %s: %v\n", url, err)
