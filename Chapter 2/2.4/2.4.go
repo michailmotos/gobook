@@ -29,13 +29,16 @@ func PopCountShift(x uint64) int {
 	return sum
 }
 
-//PopCountLoop return the population count(number of set bits) of x
-func PopCountLoop(x uint64) int {
-	var sum int
-	for i := 0; i < 8; i++ {
-		sum += int(pc[byte(x>>(i*8))])
-	}
-	return sum
+// PopCount returns the population count(number of set bits) of x
+func PopCount(x uint64) int {
+	return int(pc[byte(x>>(0*8))] +
+		pc[byte(x>>(1*8))] +
+		pc[byte(x>>(2*8))] +
+		pc[byte(x>>(3*8))] +
+		pc[byte(x>>(4*8))] +
+		pc[byte(x>>(5*8))] +
+		pc[byte(x>>(6*8))] +
+		pc[byte(x>>(7*8))])
 }
 
 func main() {
@@ -50,13 +53,13 @@ func main() {
 		fmt.Printf("Number: %d , Set: %d\n", input, sum)
 	}
 	elapsed := time.Since(start)
-	fmt.Printf("PopCount Elapsed time: %v\n", elapsed)
+	fmt.Printf("PopCountShift Elapsed time: %v\n", elapsed)
 
 	start = time.Now()
 	for _, input := range dataSet {
-		sum = PopCountLoop(input)
+		sum = PopCount(input)
 		fmt.Printf("Number: %d , Set: %d\n", input, sum)
 	}
 	elapsed = time.Since(start)
-	fmt.Printf("PopCountLoop Elapsed time: %v\n", elapsed)
+	fmt.Printf("PopCount Elapsed time: %v\n", elapsed)
 }
