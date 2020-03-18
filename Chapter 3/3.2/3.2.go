@@ -53,7 +53,7 @@ func main() {
 		}
 	}
 	fmt.Println("</svg>")
-	file.WriteString("</svg>")
+	file.WriteString("</svg>\n</body>")
 }
 
 func corner(i, j int) (float64, float64) {
